@@ -2,7 +2,7 @@
 
 module Text.Koine.Types where
 
-import Prelude (Double)
+import Prelude (Double, Eq, Ord, Show)
 
 import Data.Map (Map)
 import qualified Data.Map as Map
@@ -17,19 +17,20 @@ data Value
   | VTrue
   | VFalse
   | VNull
+  deriving (Eq, Ord, Show)
 
 newtype String = String
   { unString :: Text
-  }
+  } deriving (Eq, Ord, Show)
 
 newtype Number = Number
   { unNumber :: Double  -- XXX: for now
-  }
+  } deriving (Eq, Ord, Show)
 
 newtype Object = Object
   { unObject :: Map String Value
-  }
+  } deriving (Eq, Ord, Show)
 
 newtype Array = Array
   { unArray :: [Value]
-  }
+  } deriving (Eq, Ord, Show)
