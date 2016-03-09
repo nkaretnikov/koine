@@ -4,12 +4,12 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, base, containers, text, stdenv }:
+  f = { mkDerivation, base, containers, parsec, text, stdenv }:
       mkDerivation {
         pname = "koine";
         version = "0.1.0.0";
         sha256 = "./.";
-        libraryHaskellDepends = [ base containers text ];
+        libraryHaskellDepends = [ base containers parsec text ];
         license = stdenv.lib.licenses.bsd3;
       };
 
